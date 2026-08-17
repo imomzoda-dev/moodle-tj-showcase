@@ -66,6 +66,35 @@ analytics — in one system.
 
 ---
 
+## What's new
+
+<table>
+<tr><td width="34%" valign="top">
+
+**Online library**
+
+A section of its own: read in the browser, keep a personal shelf,
+rate and review books, search inside the files themselves.
+
+</td><td width="33%" valign="top">
+
+**Library dashboard**
+
+A `Moodle ↔ Library` switch in the admin: each side has
+its own analytics, charts and lists.
+
+</td><td width="33%" valign="top">
+
+**Reworked home page**
+
+A 3D carousel of course categories, live platform stats
+and a news feed built for phones.
+
+</td></tr>
+</table>
+
+---
+
 ## Screenshots
 
 <table>
@@ -189,6 +218,102 @@ and notification settings links.
 
 </td>
 </tr>
+<tr>
+<td width="50%" valign="top">
+
+### Online library
+
+A book catalogue with filters by category, format, rating, language
+and access. Covers are turned into 3D books in pure CSS; the grid/list
+view is remembered in the browser.
+
+<img src="docs/screenshots/12-library.png" alt="Online library">
+
+</td>
+<td width="50%" valign="top">
+
+### Book page
+
+Read online, download, or put the book on your shelf. Reading
+continues from the right page on any device, with star reviews
+and related books from the same categories.
+
+<img src="docs/screenshots/14-library-book.png" alt="Book page">
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### Personal shelf
+
+Favourites, books in progress with a percentage, and finished ones.
+Progress is stored on the server, so a book opens at the same page
+on a phone as well.
+
+<img src="docs/screenshots/15-library-shelf.png" alt="Personal shelf">
+
+</td>
+<td width="50%" valign="top">
+
+### Library categories
+
+More than twenty sections — from programming to cybersecurity —
+each with its book count. Titles in two languages; empty sections
+never show up in the catalogue.
+
+<img src="docs/screenshots/13-library-categories.png" alt="Library categories">
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### Admin dashboard
+
+Two dashboards in one screen: `Moodle` for courses and students,
+`Library` for books, readers and ratings. The 3D charts are plain SVG
+rendered on the server — not a single external charting library.
+
+<img src="docs/screenshots/17-dashboard.png" alt="Admin dashboard">
+
+</td>
+<td width="50%" valign="top">
+
+### Dashboard, light theme
+
+The same screen in light mode: KPI cards with sparklines, growth by day,
+audience split, and course bars — click a bar and the list of that
+course's students opens right below.
+
+<img src="docs/screenshots/18-dashboard-light.png" alt="Dashboard, light theme">
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### Certificate
+
+Issued when a course is completed: document number, lessons done,
+study duration and a QR code. Anyone can verify it on the site
+through the address in the code — no login required.
+
+<img src="docs/screenshots/16-certificate.png" alt="Certificate">
+
+</td>
+<td width="50%" valign="top">
+
+### Dark theme
+
+Both themes are designed, not filtered: shadows, highlights
+and gradients have their own colours. The choice is remembered
+across every page, the library included.
+
+<img src="docs/screenshots/11-home-dark.png" alt="Dark theme">
+
+</td>
+</tr>
 </table>
 
 ---
@@ -226,6 +351,21 @@ and notification settings links.
 | Author chat | A separate AI channel to reach the course instructor |
 | Model choice | Several models supported, including local ones |
 
+### Online library
+
+| Area | What it does |
+|---|---|
+| Catalogue | Books by category, language, format and rating; grid or list view |
+| In-browser reading | Page-by-page PDF reader with thumbnails, zoom and full screen |
+| Personal shelf | Favourites, books in progress and finished ones — per reader |
+| Resume reading | The page is kept on the server and reopens on any device |
+| Ratings and reviews | Five stars plus text; the average shows on the book card |
+| Full-text search | Looks inside the files, not only at titles and authors |
+| Authors | An alphabetical index and a page for every author |
+| Books in lessons | A book can be attached to a lesson as recommended reading |
+| Paid books | A purchase request goes straight to the admin's Telegram |
+| Teacher uploads | Teachers add their own books; the admin approves them |
+
 ### Community
 
 | Area | What it does |
@@ -257,6 +397,9 @@ and notification settings links.
 | Global search | Across courses, lessons and news |
 | Safe links | Identifiers in URLs are encrypted |
 | SEO | Sitemap for search engines |
+| Online library | A section of its own, with its own design and mobile layout |
+| Two admin dashboards | Course analytics and library analytics in one screen |
+| Certificates | PDF with a QR code and public authenticity check |
 | Responsive | Works correctly on phones and tablets |
 
 ---
@@ -272,6 +415,8 @@ and notification settings links.
 | Code execution | Wandbox, Paiza.io — server-side compilation and execution |
 | Artificial intelligence | ![Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white) ![Ollama](https://img.shields.io/badge/Ollama-000000?style=flat-square&logo=ollama&logoColor=white) |
 | Messaging | ![Telegram](https://img.shields.io/badge/Telegram%20Bot%20API-26A5E4?style=flat-square&logo=telegram&logoColor=white) |
+| Book reading | ![PDF.js](https://img.shields.io/badge/PDF.js-F40F02?style=flat-square&logo=adobeacrobatreader&logoColor=white) — reader is self-hosted, files never leave the server |
+| API | ![DRF](https://img.shields.io/badge/Django%20REST%20Framework-A30000?style=flat-square&logo=django&logoColor=white) — catalogue and book files for the mobile app |
 | Localisation | Django i18n — Russian and Tajik |
 
 ---
@@ -280,15 +425,16 @@ and notification settings links.
 
 | Metric | Value |
 |---|---|
-| Data models | 36 |
-| URL routes | 127 |
+| Data models | 52 |
+| URL routes | 300+ |
 | Main modules | Courses, quizzes, assignments, forum, news, compiler, AI, analytics |
 | Interface languages | 2 |
 
 Key entities: `Course`, `Lesson`, `Material`, `Quiz`, `Question`, `Assignment`,
 `Submission`, `Enrollment`, `LessonProgress`, `QuizAttempt`, `ForumDiscussion`,
 `News`, `CompilerFile`, `CodingTask`, `CodingTestCase`, `CodingSubmission`,
-`LessonAIChatHistory`, `Notification`.
+`LessonAIChatHistory`, `Notification`, `Book`, `BookCategory`,
+`ReadingProgress`, `BookReview`, `BookFavorite`, `LessonBook`.
 
 ---
 
