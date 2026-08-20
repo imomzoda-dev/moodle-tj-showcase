@@ -314,6 +314,30 @@ across every page, the library included.
 
 </td>
 </tr>
+<tr>
+<td width="50%" valign="top">
+
+### Platform-wide chat
+
+A chat for everyone: messages grouped by day, replies to a specific
+message, images, emoji and editing what you sent. It opens on top of
+any page and never gets in the way of the lesson.
+
+<img src="docs/screenshots/19-chat.png" alt="Platform-wide chat">
+
+</td>
+<td width="50%" valign="top">
+
+### Global search
+
+One field searches courses, lessons and news at once. Results are
+grouped by section, the matched word is highlighted, and every lesson
+shows which course it belongs to.
+
+<img src="docs/screenshots/20-search.png" alt="Global search">
+
+</td>
+</tr>
 </table>
 
 ---
@@ -375,6 +399,7 @@ across every page, the library included.
 | News | Platform feed with comments and voting |
 | Reviews | Platform ratings from students |
 | Notifications | In-app alerts about course events |
+| Platform chat | Site-wide chat: replies, images, emoji, message editing |
 | Telegram | Account linking, sign-in and notifications through a bot |
 
 ### For teachers and administrators
